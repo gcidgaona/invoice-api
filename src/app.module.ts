@@ -4,17 +4,18 @@ import { InvoiceModule } from './features/Invoice';
 import { SelectModule } from './features/select';
 import { UsersModule } from './features/user';
 import { ConsolidModule } from './features/consolid';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     InvoiceModule,
     UsersModule,
     SelectModule,
     ConsolidModule,
-    MongooseModule.forRoot(
-      'mongodb+srv://gcidgaona:onedream1@cluster0.pg5io1f.mongodb.net/?retryWrites=true&w=majority',
-      { dbName: 'invoice' },
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URL, {
+      dbName: process.env.DB_NAME,
+    }),
   ],
   controllers: [],
   providers: [],
