@@ -1,0 +1,9 @@
+const PENDING_STATE = 'PENDING';
+const UNPAID_STATE = 'UNPAID';
+const PAID_STATE = 'PAID';
+
+export {
+  PENDING_STATE,
+  UNPAID_STATE,
+  PAID_STATE,
+}
